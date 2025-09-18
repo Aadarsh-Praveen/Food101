@@ -19,9 +19,9 @@ A clean, end-to-end transfer-learning pipeline for Food-101 image classification
     Full Fine-Tuning (all layers trainable, patience & LR reduction)
     Callbacks: Best-weights checkpointing (monitored on validation accuracy), early stopping, learning-rate reduction on plateau, and TensorBoard logging with timestamped run directories.
   
-Evaluation: Standard model.evaluate on the validation split.
+**Evaluation**: Standard model.evaluate on the validation split.
 
-Inference: Single-image prediction helper that returns the class name (not just the index).
+**Inference**: Single-image prediction helper that returns the class name (not just the index).
 
 ### Model & Training Configuration
 
@@ -56,10 +56,3 @@ Training curves (loss/accuracy) and run-to-run comparisons are available in Tens
 
 Final performance depends on training duration, fine-tuning depth, and hardware; consult the latest TensorBoard logs in food101_experiments/ for your specific runs.
 
-### Repository Contents (key items)
-
-**Notebook(s)**: End-to-end pipeline: data load (TFDS), preprocessing, model build, staged training, logging, checkpointing, evaluation, and prediction.
-
-**Logs**: Timestamped TensorBoard directories under food101_experiments/.
-
-**Checkpoints**: Best-weights file (e.g., food101_checkpoints.weights.h5) saved during training
