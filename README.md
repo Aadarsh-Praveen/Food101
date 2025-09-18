@@ -17,7 +17,8 @@ A clean, end-to-end transfer-learning pipeline for Food-101 image classification
     Feature Extraction (base frozen)
     Partial Fine-Tuning (continue training with lower LR)
     Full Fine-Tuning (all layers trainable, patience & LR reduction)
-    Callbacks: Best-weights checkpointing (monitored on validation accuracy), early stopping, learning-rate reduction on plateau, and TensorBoard logging with timestamped run directories.
+    
+**Callbacks**: Best-weights checkpointing (monitored on validation accuracy), early stopping, learning-rate reduction on plateau, and TensorBoard logging with timestamped run directories.
   
 **Evaluation**: Standard model.evaluate on the validation split.
 
