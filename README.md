@@ -20,23 +20,33 @@ A clean, end-to-end transfer-learning pipeline for Food-101 image classification
     Callbacks: Best-weights checkpointing (monitored on validation accuracy), early stopping, learning-rate reduction on plateau, and TensorBoard logging with timestamped run directories.
   
 Evaluation: Standard model.evaluate on the validation split.
+
 Inference: Single-image prediction helper that returns the class name (not just the index).
 
 ### Model & Training Configuration
 
   **Input size:** 224 × 224 × 3
+  
   **Preprocessing:** Resize to 224; backbone includes internal rescaling appropriate for EfficientNetV2.
+  
   **Head**: GlobalAveragePooling → Dense(num_classes) → Softmax (float32 output for numerical stability under mixed precision).
+  
   **Loss / Metrics**: Sparse Categorical Crossentropy (integer labels 0–100), Accuracy.
+  
   **Optimizer**: Adam (default for feature extraction), then lower learning rate (e.g., 1e-4) for fine-tuning phases.
+  
   **Batching & Pipeline**: tf.data with map/resize, shuffle, batch (32), and prefetch for throughput.
+  
   **Mixed Precision**: Global policy set to mixed_float16 for GPU tensor cores acceleration.
+  
   **Early Stopping**: Patience on validation accuracy to prevent overfitting.
+  
   **ReduceLROnPlateau**: Factor reduction when validation accuracy stalls, with a minimum LR safeguard.
 
 ### Logging & Checkpoints
 
 **TensorBoard**: Each run is saved under a timestamped subfolder inside a top-level log directory (e.g., food101_experiments/feature_extraction/…, …/fine_tuning_10/…, …/fine_tuning_full/…).
+
 
 **Checkpoints**: Best model weights are saved (monitored on val_accuracy) to a designated path (e.g., food101_checkpoints.weights.h5). This ensures you can reload the best-performing state for evaluation or inference.
 
