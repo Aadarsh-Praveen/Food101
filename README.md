@@ -53,7 +53,7 @@ A clean, end-to-end transfer-learning pipeline for Food-101 image classification
 
 ### Results
 
-Training curves (loss/accuracy) and run-to-run comparisons are available in TensorBoard.
+* Training curves (loss/accuracy) and run-to-run comparisons are available in TensorBoard.
 
-Final performance depends on training duration, fine-tuning depth, and hardware; consult the latest TensorBoard logs in food101_experiments/ for your specific runs.
+* Final performance depends on training duration, fine-tuning depth, and hardware; consult the latest TensorBoard logs in food101_experiments/ for your specific runs.
 
